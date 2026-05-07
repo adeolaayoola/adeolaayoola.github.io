@@ -69,11 +69,7 @@
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1.5rem; align-items: start; }
 
   /* PHOTO STRIP */
-  .photo-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 1.5rem; }
-  .photo-strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; display: block; }
-  .photo-strip-wide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
-  .photo-strip-wide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; display: block; }
-  .photo-caption { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 0.75rem; text-align: center; }
+
 
   /* CASE STUDIES */
   .case { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
@@ -141,7 +137,6 @@
     .plan-grid { grid-template-columns: 1fr; }
     .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
     .contact-grid { grid-template-columns: 1fr; }
-    .photo-strip { grid-template-columns: repeat(3, 1fr); }
     .nav-links { display: none; }
   }
 </style>
@@ -152,7 +147,7 @@
   <div class="nav-name">Adeola Ayoola, PhD</div>
   <div class="nav-links">
     <a href="#about">About</a>
-    <a href="#field">In the field</a>
+
     <a href="#case-studies">Case studies</a>
     <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
@@ -215,25 +210,7 @@
     </div>
   </section>
 
-  <!-- FIELD PHOTOS -->
-  <section id="field">
-    <div class="section-label">In the field and at the podium</div>
-    <h2>Global scientific presence</h2>
-    <p>Platform presentations at international scientific congresses and hands-on field research across three continents — the scientific credibility that makes program management effective.</p>
-    <div class="photo-strip">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0007.jpg" alt="Presenting at 30th IPS Congress, Madagascar 2025">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0019.jpg" alt="Targeted Genome Recovery presentation, IPS Madagascar">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0023.jpg" alt="With international delegates, IPS Madagascar">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250725-WA0026.jpg" alt="IPS field excursion, Madagascar highlands">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0003.jpg" alt="Methods slide, NGS pipeline, IPS Madagascar">
-    </div>
-    <div class="photo-strip-wide">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250802-WA0047.jpg" alt="International field excursion with IPS delegates, Madagascar highlands">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250727-WA0037.jpg" alt="Forest fieldwork with international collaborators, Madagascar">
-      <img src="https://adeolaayoola-star.github.io/IMG-20250730-WA0039.jpg" alt="IPS field programme delegates, Madagascar 2025">
-    </div>
-    <p class="photo-caption">30th International Primatological Society Congress · Madagascar, July 2025 · Two oral presentations</p>
-  </section>
+
 
   <!-- CASE STUDIES -->
   <section id="case-studies">

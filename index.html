@@ -10,7 +10,6 @@
 <style>
   :root {
     --navy: #0f1f38;
-    --navy-mid: #1a3352;
     --accent: #c8873a;
     --accent-light: #f0d4b0;
     --cream: #faf8f4;
@@ -21,154 +20,78 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.7;
-  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
 
-  /* NAV */
   nav {
     position: sticky; top: 0; z-index: 100;
-    background: var(--navy);
-    padding: 0 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
+    background: var(--navy); padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between; height: 56px;
   }
-  .nav-name { color: var(--white); font-size: 14px; font-weight: 500; letter-spacing: 0.02em; }
+  .nav-name { color: var(--white); font-size: 14px; font-weight: 500; }
   .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { color: rgba(255,255,255,0.65); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  .nav-links a { color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--accent-light); }
 
   /* HERO */
-  .hero {
-    background: var(--navy);
-    padding: 5rem 2rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(200,135,58,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-eyebrow {
-    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1rem; font-weight: 500;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 0.5rem;
-  }
-  .hero-title {
-    font-size: 1rem; color: rgba(255,255,255,0.55);
-    font-weight: 300; margin-bottom: 1.75rem; letter-spacing: 0.05em;
-    text-transform: uppercase; font-size: 13px;
-  }
-  .hero-tagline {
-    max-width: 640px; margin: 0 auto 2.5rem;
-    font-size: 1.1rem; color: rgba(255,255,255,0.8);
-    font-weight: 300; line-height: 1.75;
-  }
-  .hero-tags {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    justify-content: center; margin-bottom: 2.5rem;
-  }
-  .tag {
-    font-size: 12px; padding: 5px 14px;
-    border: 0.5px solid rgba(255,255,255,0.2);
-    border-radius: 100px; color: rgba(255,255,255,0.7);
-    letter-spacing: 0.02em;
-  }
-  .hero-meta {
-    font-size: 13px; color: rgba(255,255,255,0.4);
-  }
-  .hero-cta {
-    display: inline-block; margin-top: 2rem;
-    background: var(--accent); color: var(--white);
-    padding: 0.75rem 2rem; border-radius: 4px;
-    text-decoration: none; font-size: 14px; font-weight: 500;
-    letter-spacing: 0.03em; transition: opacity 0.2s;
-  }
-  .hero-cta:hover { opacity: 0.88; }
+  .hero { background: var(--navy); padding: 5rem 2rem 4rem; }
+  .hero-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: center; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--white); line-height: 1.15; margin-bottom: 0.4rem; }
+  .hero-subtitle { font-size: 13px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1.5rem; }
+  .hero-tagline { font-size: 1.05rem; color: rgba(255,255,255,0.78); font-weight: 300; line-height: 1.75; margin-bottom: 1.75rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
+  .tag { font-size: 12px; padding: 4px 13px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 100px; color: rgba(255,255,255,0.65); }
+  .hero-meta { font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 1.75rem; }
+  .hero-cta { display: inline-block; background: var(--accent); color: var(--white); padding: 0.7rem 1.75rem; border-radius: 4px; text-decoration: none; font-size: 14px; font-weight: 500; transition: opacity 0.2s; }
+  .hero-cta:hover { opacity: 0.85; }
+  .hero-photo { position: relative; }
+  .hero-photo img { width: 100%; border-radius: 8px; display: block; object-fit: cover; aspect-ratio: 3/4; filter: brightness(0.92); }
+  .hero-photo-caption { font-size: 11px; color: rgba(255,255,255,0.35); text-align: center; margin-top: 0.5rem; }
 
   /* LAYOUT */
   .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
   section { padding: 4rem 0; border-bottom: 0.5px solid var(--border); }
   section:last-child { border-bottom: none; }
-
-  .section-label {
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); font-weight: 500; margin-bottom: 1.25rem;
-  }
-  h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.9rem; margin-bottom: 1rem; line-height: 1.2;
-  }
-  h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 1.25rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 1.85rem; margin-bottom: 1rem; line-height: 1.2; }
+  h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem; }
   p { color: var(--muted); margin-bottom: 1rem; }
   p:last-child { margin-bottom: 0; }
   strong { color: var(--text); font-weight: 500; }
 
   /* METRICS */
-  .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1px; background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: 8px; overflow: hidden;
-    margin-top: 1.5rem;
-  }
-  .metric {
-    background: var(--white);
-    padding: 1.5rem 1.25rem;
-  }
-  .metric-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem; color: var(--navy); line-height: 1;
-    margin-bottom: 0.5rem;
-  }
-  .metric-label { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 1.5rem; }
+  .metric { background: var(--white); padding: 1.5rem 1.25rem; }
+  .metric-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--navy); line-height: 1; margin-bottom: 0.4rem; }
+  .metric-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
   /* ABOUT */
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-  @media (max-width: 600px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1.5rem; align-items: start; }
+
+  /* PHOTO STRIP */
+  .photo-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 1.5rem; }
+  .photo-strip img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 6px; display: block; }
+  .photo-strip-wide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 8px; }
+  .photo-strip-wide img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 6px; display: block; }
+  .photo-caption { font-size: 12px; color: var(--muted); font-style: italic; margin-top: 0.75rem; text-align: center; }
 
   /* CASE STUDIES */
-  .case { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; margin-bottom: 1.25rem; overflow: hidden; }
-  .case-header {
-    padding: 1.25rem 1.5rem;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
-    cursor: pointer;
-    background: var(--white);
-    transition: background 0.15s;
-  }
+  .case { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+  .case-header { padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; cursor: pointer; transition: background 0.15s; }
   .case-header:hover { background: var(--cream); }
-  .case-num { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.25rem; }
-  .case-toggle { font-size: 20px; color: var(--muted); flex-shrink: 0; margin-top: 2px; transition: transform 0.2s; }
+  .case-num { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .case-toggle { font-size: 22px; color: var(--muted); flex-shrink: 0; transition: transform 0.2s; line-height: 1; }
   .case.open .case-toggle { transform: rotate(45deg); }
   .case-body { display: none; padding: 0 1.5rem 1.5rem; border-top: 0.5px solid var(--border); }
   .case.open .case-body { display: block; }
   .case-meta { font-size: 12px; color: var(--muted); margin: 1rem 0 1.25rem; font-style: italic; }
   .case-block { margin-bottom: 1.25rem; }
   .case-block-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 500; margin-bottom: 0.4rem; }
-  .outcomes { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
-  .outcome-pill {
-    background: var(--navy); color: var(--white);
-    padding: 0.4rem 0.9rem; border-radius: 4px;
-    font-size: 13px; font-weight: 500;
-  }
+  .outcomes { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .outcome-pill { background: var(--navy); color: var(--white); padding: 0.4rem 0.9rem; border-radius: 4px; font-size: 13px; font-weight: 500; }
 
-  /* 90 DAYS */
+  /* PLAN */
   .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
-  @media (max-width: 600px) { .plan-grid { grid-template-columns: 1fr; } }
   .plan-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 8px; padding: 1.25rem; }
   .plan-range { font-size: 11px; color: var(--accent); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
   .plan-title { font-weight: 500; font-size: 15px; margin-bottom: 0.75rem; color: var(--text); }
@@ -177,7 +100,6 @@
   /* EXPERIENCE */
   .exp-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 0.5px solid var(--border); }
   .exp-item:last-child { border-bottom: none; }
-  @media (max-width: 540px) { .exp-item { grid-template-columns: 1fr; gap: 0.5rem; } }
   .exp-dates { font-size: 12px; color: var(--muted); padding-top: 3px; line-height: 1.6; }
   .exp-role { font-weight: 500; font-size: 15px; margin-bottom: 0.2rem; color: var(--text); }
   .exp-org { font-size: 13px; color: var(--accent); margin-bottom: 0.75rem; }
@@ -193,37 +115,34 @@
   .skill-card ul li:last-child { border-bottom: none; }
 
   /* PUBLICATIONS */
-  .pub { padding: 1rem 0; border-bottom: 0.5px solid var(--border); display: grid; grid-template-columns: 60px 1fr; gap: 1rem; }
+  .pub { padding: 1rem 0; border-bottom: 0.5px solid var(--border); display: grid; grid-template-columns: 56px 1fr; gap: 1rem; }
   .pub:last-child { border-bottom: none; }
   .pub-year { font-size: 13px; color: var(--accent); font-weight: 500; padding-top: 2px; }
-  .pub-title { font-size: 14px; color: var(--text); margin-bottom: 0.25rem; line-height: 1.5; }
+  .pub-title { font-size: 14px; color: var(--text); margin-bottom: 0.2rem; line-height: 1.5; }
   .pub-journal { font-size: 12px; color: var(--muted); font-style: italic; }
 
   /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
-  @media (max-width: 540px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-item { font-size: 14px; }
+  .contact-item { margin-bottom: 1rem; }
   .contact-item-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 500; margin-bottom: 0.3rem; }
-  .contact-item-value { color: var(--text); }
+  .contact-item-value { font-size: 14px; color: var(--text); }
   .contact-item-value a { color: var(--navy); text-decoration: none; }
   .contact-item-value a:hover { text-decoration: underline; }
-  .links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
-  .ext-link {
-    font-size: 13px; color: var(--navy);
-    border: 0.5px solid var(--border); padding: 6px 16px;
-    border-radius: 100px; text-decoration: none; transition: border-color 0.2s, color 0.2s;
-  }
+  .links-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+  .ext-link { font-size: 13px; color: var(--navy); border: 0.5px solid var(--border); padding: 6px 16px; border-radius: 100px; text-decoration: none; transition: border-color 0.2s; }
   .ext-link:hover { border-color: var(--navy); }
 
-  footer {
-    background: var(--navy); color: rgba(255,255,255,0.4);
-    text-align: center; padding: 2rem; font-size: 13px;
-  }
+  footer { background: var(--navy); color: rgba(255,255,255,0.35); text-align: center; padding: 2rem; font-size: 13px; }
 
-  @media (max-width: 480px) {
+  @media (max-width: 680px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; max-width: 200px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; }
+    .plan-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .photo-strip { grid-template-columns: repeat(3, 1fr); }
     .nav-links { display: none; }
-    .hero { padding: 3.5rem 1.5rem 3rem; }
-    .container { padding: 0 1.25rem; }
   }
 </style>
 </head>
@@ -233,6 +152,7 @@
   <div class="nav-name">Adeola Ayoola, PhD</div>
   <div class="nav-links">
     <a href="#about">About</a>
+    <a href="#field">In the field</a>
     <a href="#case-studies">Case studies</a>
     <a href="#experience">Experience</a>
     <a href="#publications">Publications</a>
@@ -241,33 +161,41 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow">Scientific Program Manager</div>
-  <h1>Adeola Ayoola, PhD</h1>
-  <div class="hero-title">UCLA · Human Genetics · Mebane, NC</div>
-  <p class="hero-tagline">I translate scientific strategy into accountable execution — running the operating rhythms, communication loops, and SOP infrastructure that keep complex multi-site programs on track.</p>
-  <div class="hero-tags">
-    <span class="tag">Cross-functional alignment</span>
-    <span class="tag">Program execution</span>
-    <span class="tag">SOP standardization</span>
-    <span class="tag">GLP / GCP</span>
-    <span class="tag">Change management</span>
-    <span class="tag">US Permanent Resident</span>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Scientific Program Manager</div>
+      <h1>Adeola Ayoola, PhD</h1>
+      <div class="hero-subtitle">UCLA · Human Genetics · Mebane, NC</div>
+      <p class="hero-tagline">I translate scientific strategy into accountable execution — running the operating rhythms, communication loops, and SOP infrastructure that keep complex multi-site programs on track.</p>
+      <div class="hero-tags">
+        <span class="tag">Cross-functional alignment</span>
+        <span class="tag">Program execution</span>
+        <span class="tag">SOP standardization</span>
+        <span class="tag">GLP / GCP</span>
+        <span class="tag">Change management</span>
+        <span class="tag">US Permanent Resident</span>
+      </div>
+      <div class="hero-meta">Open to industry, biotech, CRO, and research institute roles · No sponsorship required</div>
+      <a href="#contact" class="hero-cta">Get in touch</a>
+    </div>
+    <div class="hero-photo">
+      <img src="https://adeolaayoola-star.github.io/photo-hero.png" alt="Adeola Ayoola, PhD">
+      <div class="hero-photo-caption">Project Scientist · UCLA Human Genetics</div>
+    </div>
   </div>
-  <div class="hero-meta">No sponsorship required · Open to industry, biotech, CRO, and research institute roles</div>
-  <a href="#contact" class="hero-cta">Get in touch</a>
 </div>
 
 <div class="container">
 
   <!-- METRICS -->
-  <section id="metrics">
+  <section>
     <div class="section-label">Impact at a glance</div>
     <div class="metrics-grid">
       <div class="metric"><div class="metric-num">6+</div><div class="metric-label">Concurrent programs managed simultaneously</div></div>
-      <div class="metric"><div class="metric-num">4</div><div class="metric-label">International sites coordinated with zero data quality breaches</div></div>
+      <div class="metric"><div class="metric-num">4</div><div class="metric-label">International sites, zero data quality breaches</div></div>
       <div class="metric"><div class="metric-num">50+</div><div class="metric-label">Personnel trained through SOP and change-management programs</div></div>
       <div class="metric"><div class="metric-num">$162K</div><div class="metric-label">Extramural funding managed as PI and co-PI</div></div>
-      <div class="metric"><div class="metric-num">25%</div><div class="metric-label">Reduction in analytical errors through QC pipeline redesign</div></div>
+      <div class="metric"><div class="metric-num">25%</div><div class="metric-label">Reduction in analytical errors through QC redesign</div></div>
       <div class="metric"><div class="metric-num">28+</div><div class="metric-label">Peer-reviewed publications, 9 as first or corresponding author</div></div>
     </div>
   </section>
@@ -287,6 +215,26 @@
     </div>
   </section>
 
+  <!-- FIELD PHOTOS -->
+  <section id="field">
+    <div class="section-label">In the field and at the podium</div>
+    <h2>Global scientific presence</h2>
+    <p>Platform presentations at international scientific congresses and hands-on field research across three continents — the scientific credibility that makes program management effective.</p>
+    <div class="photo-strip">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0007.jpg" alt="Presenting at 30th IPS Congress, Madagascar 2025">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0019.jpg" alt="Targeted Genome Recovery presentation, IPS Madagascar">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0023.jpg" alt="With international delegates, IPS Madagascar">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250725-WA0026.jpg" alt="IPS field excursion, Madagascar highlands">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250724-WA0003.jpg" alt="Methods slide, NGS pipeline, IPS Madagascar">
+    </div>
+    <div class="photo-strip-wide">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250802-WA0047.jpg" alt="International field excursion with IPS delegates, Madagascar highlands">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250727-WA0037.jpg" alt="Forest fieldwork with international collaborators, Madagascar">
+      <img src="https://adeolaayoola-star.github.io/IMG-20250730-WA0039.jpg" alt="IPS field programme delegates, Madagascar 2025">
+    </div>
+    <p class="photo-caption">30th International Primatological Society Congress · Madagascar, July 2025 · Two oral presentations</p>
+  </section>
+
   <!-- CASE STUDIES -->
   <section id="case-studies">
     <div class="section-label">Case studies</div>
@@ -304,11 +252,11 @@
         <div class="case-meta">UCLA David Geffen School of Medicine · 2025 – Present</div>
         <div class="case-block">
           <div class="case-block-label">The problem</div>
-          <p>Six concurrent translational programs were running with no standardized operating rhythm. Decision bottlenecks were slowing timelines. Status updates were fragmented across individual scientists with no unified reporting to senior scientific leadership. Risk events lacked a formal escalation pathway.</p>
+          <p>Six concurrent translational programs running with no standardized operating rhythm. Decision bottlenecks were slowing timelines. Status updates were fragmented with no unified reporting to senior leadership. Risk events lacked a formal escalation pathway.</p>
         </div>
         <div class="case-block">
           <div class="case-block-label">What I built</div>
-          <p>Designed and implemented weekly standups, milestone reviews, and risk scrubs. Built executive status briefings for the PI and cross-functional partners. Created a real-time escalation workflow for flagged data events. Authored decision-ready change-control proposals for all program-level changes. Established a unified QC dashboard tracking specimen status, pipeline progress, and risk flags.</p>
+          <p>Designed and implemented weekly standups, milestone reviews, and risk scrubs. Built executive status briefings for the PI and cross-functional partners. Created a real-time escalation workflow for flagged data events. Authored decision-ready change-control proposals. Established a unified QC dashboard tracking specimen status, pipeline progress, and risk flags.</p>
         </div>
         <div class="case-block">
           <div class="case-block-label">Outcomes</div>
@@ -333,7 +281,7 @@
         <div class="case-meta">Duke University, Department of Evolutionary Anthropology · 2022 – 2025</div>
         <div class="case-block">
           <div class="case-block-label">The problem</div>
-          <p>A multi-institutional program across four international sites lacked standardized feasibility review, data quality assurance, and cross-institutional governance. A major cloud migration was required to scale programs that had outgrown existing infrastructure, requiring buy-in across geographically dispersed teams with different operational cultures.</p>
+          <p>A multi-institutional program across four international sites lacked standardized feasibility review, data quality assurance, and cross-institutional governance. A cloud migration was required to scale programs that had outgrown existing infrastructure, requiring buy-in across geographically dispersed teams with different operational cultures.</p>
         </div>
         <div class="case-block">
           <div class="case-block-label">What I built</div>
@@ -362,7 +310,7 @@
         <div class="case-meta">Humboldt Research Hub, LAUTECH, Nigeria · 2022</div>
         <div class="case-block">
           <div class="case-block-label">The problem</div>
-          <p>A multi-site scientific operation running at 30% capacity with no SOPs, no formal training infrastructure, no adverse event escalation pathway, and no standardized documentation across ten sites. Regulatory risk was high. The organization needed a complete operational build from scratch.</p>
+          <p>A multi-site scientific operation running at 30% capacity with no SOPs, no formal training infrastructure, no adverse event escalation pathway, and no standardized documentation across ten sites. Regulatory risk was high. A complete operational build from scratch was needed.</p>
         </div>
         <div class="case-block">
           <div class="case-block-label">What I built</div>
@@ -412,13 +360,13 @@
       <div class="exp-dates">Jul 2025 – Present</div>
       <div>
         <div class="exp-role">Project Scientist / Scientific Program Manager</div>
-        <div class="exp-org">UCLA David Geffen School of Medicine, Department of Human Genetics</div>
+        <div class="exp-org">UCLA David Geffen School of Medicine · Department of Human Genetics</div>
         <p>Operational lead for a multi-investigator clinical genomics program. Owns operating cadences, executive briefings, change-control proposals, and risk escalation workflows across six concurrent translational programs. Implemented QC pipelines reducing analytical errors by 25%.</p>
         <div class="exp-tags">
           <span class="exp-tag">Operating cadences</span>
           <span class="exp-tag">Stakeholder briefings</span>
           <span class="exp-tag">Risk management</span>
-          <span class="exp-tag">Audit-ready docs</span>
+          <span class="exp-tag">Audit-ready documentation</span>
         </div>
       </div>
     </div>
@@ -427,8 +375,8 @@
       <div class="exp-dates">Sep 2022 – Jun 2025</div>
       <div>
         <div class="exp-role">Scientific Project Manager / Computational Research Lead</div>
-        <div class="exp-org">Duke University, Department of Evolutionary Anthropology</div>
-        <p>Co-PI on a $149,996 National Geographic grant. Managed a four-site international program owning feasibility assessments, milestone tracking, cross-institutional governance, stakeholder communication, and funder reporting. Led cloud migration change initiative achieving 50% compute cost reduction.</p>
+        <div class="exp-org">Duke University · Department of Evolutionary Anthropology</div>
+        <p>Co-PI on a $149,996 National Geographic grant. Managed a four-site international program owning feasibility assessments, milestone tracking, cross-institutional governance, stakeholder communication, and funder reporting. Led cloud migration achieving 50% compute cost reduction.</p>
         <div class="exp-tags">
           <span class="exp-tag">Multi-site coordination</span>
           <span class="exp-tag">Grant management</span>
@@ -442,8 +390,8 @@
       <div class="exp-dates">Jan 2022 – Aug 2022</div>
       <div>
         <div class="exp-role">Laboratory Manager and Scientific Operations Coordinator</div>
-        <div class="exp-org">Humboldt Research Hub, LAUTECH, Nigeria</div>
-        <p>Built scientific operations function from scratch. Authored all SOPs, trained 50 personnel in GCP-aligned procedures, and scaled laboratory throughput from 30% to 100% capacity in six months. Managed multi-site clinical studies across ten collection sites.</p>
+        <div class="exp-org">Humboldt Research Hub, LAUTECH · Nigeria</div>
+        <p>Built a scientific operations function from scratch. Authored all SOPs, trained 50 personnel in GCP-aligned procedures, and scaled laboratory throughput from 30% to 100% capacity in six months. Managed multi-site clinical studies across ten collection sites.</p>
         <div class="exp-tags">
           <span class="exp-tag">SOP authorship</span>
           <span class="exp-tag">Staff training</span>
@@ -457,8 +405,8 @@
       <div class="exp-dates">2021 – 2022</div>
       <div>
         <div class="exp-role">Research Scientist</div>
-        <div class="exp-org">Swiss Center for Scientific Research / Helmholtz Institute for One Health, Côte d'Ivoire</div>
-        <p>Coordinated field teams, epidemiology partners, and environmental health scientists across multi-site field study designs. Translated genomic and field data into peer-reviewed publications and grant deliverables for funding-body stakeholders.</p>
+        <div class="exp-org">Swiss Center for Scientific Research / Helmholtz Institute for One Health · Côte d'Ivoire</div>
+        <p>Coordinated field teams, epidemiology partners, and environmental health scientists across multi-site field study designs. Delivered findings to funding-body stakeholders through peer-reviewed publications and grant deliverables.</p>
         <div class="exp-tags">
           <span class="exp-tag">Cross-functional coordination</span>
           <span class="exp-tag">Grant reporting</span>
@@ -469,7 +417,7 @@
   </section>
 
   <!-- SKILLS -->
-  <section id="skills">
+  <section>
     <div class="section-label">Skills</div>
     <h2>Scientific program management toolkit</h2>
     <div class="skills-grid">
@@ -503,7 +451,7 @@
           <li>Training program design</li>
           <li>GCP and IRB-aligned documentation</li>
           <li>GLP/GCP regulatory awareness</li>
-          <li>Audit-readiness practice</li>
+          <li>Continuous audit-readiness</li>
         </ul>
       </div>
       <div class="skill-card">
@@ -512,7 +460,7 @@
           <li>Computational genomics and NGS pipelines</li>
           <li>Python, R, SQL, AWS, HPC</li>
           <li>Cloud migration change management</li>
-          <li>Translational science and companion diagnostics</li>
+          <li>Translational science</li>
           <li>Multi-omics data integration</li>
           <li>28+ peer-reviewed publications</li>
         </ul>
@@ -524,12 +472,12 @@
   <section id="publications">
     <div class="section-label">Publications</div>
     <h2>Selected peer-reviewed work</h2>
-    <p>The scientific credibility behind the program management. Full record on <a href="https://scholar.google.com/citations?user=_vBiJnQAAAAJ&hl=en" target="_blank" style="color:var(--navy);">Google Scholar</a>.</p>
+    <p>Full record on <a href="https://scholar.google.com/citations?user=_vBiJnQAAAAJ&hl=en" target="_blank" style="color:var(--navy);">Google Scholar</a>.</p>
 
     <div class="pub">
       <div class="pub-year">2025</div>
       <div>
-        <div class="pub-title">Genetic diversity of Plasmodium falciparum in people living with HIV in Ogbomoso, Nigeria: implications for malaria transmission and treatment.</div>
+        <div class="pub-title">Genetic diversity of Plasmodium falciparum in people living with HIV in Ogbomoso, Nigeria.</div>
         <div class="pub-journal">MalariaWorld Journal · Odesola DE, …, Ayoola AO, Ojurongbe O.</div>
       </div>
     </div>
@@ -537,7 +485,7 @@
       <div class="pub-year">2023</div>
       <div>
         <div class="pub-title">Population structure and evolutionary history of the greater cane rat from the Guinean Forests of West Africa.</div>
-        <div class="pub-journal">Frontiers in Genetics · Babarinde IA, Adeola AC, …, Ayoola AO, Murphy RW.</div>
+        <div class="pub-journal">Frontiers in Genetics · Babarinde IA, …, Ayoola AO, Murphy RW.</div>
       </div>
     </div>
     <div class="pub">
@@ -570,32 +518,14 @@
     <p>Available for scientific program management, operations, and cross-functional coordination roles in industry, biotech, CRO, federal, and research institute environments. Fully remote-capable. US Permanent Resident — no sponsorship required.</p>
     <div class="contact-grid">
       <div>
-        <div class="contact-item" style="margin-bottom:1rem;">
-          <div class="contact-item-label">Email</div>
-          <div class="contact-item-value"><a href="mailto:adeolaayoola52@gmail.com">adeolaayoola52@gmail.com</a></div>
-        </div>
-        <div class="contact-item" style="margin-bottom:1rem;">
-          <div class="contact-item-label">Institutional</div>
-          <div class="contact-item-value"><a href="mailto:aayoola@mednet.ucla.edu">aayoola@mednet.ucla.edu</a></div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-label">Phone</div>
-          <div class="contact-item-value">+1 (984) 329-4409</div>
-        </div>
+        <div class="contact-item"><div class="contact-item-label">Email</div><div class="contact-item-value"><a href="mailto:adeolaayoola52@gmail.com">adeolaayoola52@gmail.com</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">Institutional</div><div class="contact-item-value"><a href="mailto:aayoola@mednet.ucla.edu">aayoola@mednet.ucla.edu</a></div></div>
+        <div class="contact-item"><div class="contact-item-label">Phone</div><div class="contact-item-value">+1 (984) 329-4409</div></div>
       </div>
       <div>
-        <div class="contact-item" style="margin-bottom:1rem;">
-          <div class="contact-item-label">Location</div>
-          <div class="contact-item-value">Mebane, NC (Remote · UCLA)</div>
-        </div>
-        <div class="contact-item" style="margin-bottom:1rem;">
-          <div class="contact-item-label">Affiliation</div>
-          <div class="contact-item-value">UCLA David Geffen School of Medicine</div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-label">Work status</div>
-          <div class="contact-item-value">US Permanent Resident · No sponsorship required</div>
-        </div>
+        <div class="contact-item"><div class="contact-item-label">Location</div><div class="contact-item-value">Mebane, NC (Remote · UCLA)</div></div>
+        <div class="contact-item"><div class="contact-item-label">Affiliation</div><div class="contact-item-value">UCLA David Geffen School of Medicine</div></div>
+        <div class="contact-item"><div class="contact-item-label">Work status</div><div class="contact-item-value">US Permanent Resident · No sponsorship required</div></div>
       </div>
     </div>
     <div class="links-row">
